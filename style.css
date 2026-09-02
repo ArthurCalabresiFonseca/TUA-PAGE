@@ -1,0 +1,601 @@
+/* =========================================================
+   TUA CONTABILIDADE
+   Layout responsivo — celular, tablet e computador
+   ========================================================= */
+
+:root {
+    --bg: #b97d87;
+    --bg-dark: #a96874;
+    --surface: rgba(255, 255, 255, 0.14);
+    --surface-strong: rgba(116, 61, 71, 0.52);
+    --white: #fff;
+    --text-soft: #f8edef;
+    --text-dark: #653d45;
+    --line: rgba(255, 255, 255, 0.48);
+    --shadow: 0 16px 40px rgba(69, 36, 43, 0.14);
+    --radius: 18px;
+    --max-width: 1080px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    background: #15171d;
+    color: var(--white);
+    font-family: "DM Sans", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 90% 20%, rgba(255,255,255,.13), transparent 24%),
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #ffffff 9%,
+            #f8eff1 16%,
+            #d7a5ac 25%,
+            #c1848e 36%,
+            #b97d87 55%,
+            #b67580 100%
+        );
+}
+
+/* -------------------- ANIMAÇÃO DE ENTRADA -------------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(42px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.75,.25,1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -------------------- HERO -------------------- */
+
+.hero {
+    height: clamp(455px, 58vw, 620px);
+    padding: clamp(22px, 4vw, 48px) clamp(28px, 5vw, 64px) 0;
+}
+
+.hero__content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(260px, .9fr);
+    align-items: end;
+    gap: clamp(15px, 4vw, 70px);
+}
+
+.hero__logo {
+    width: min(100%, 430px);
+    justify-self: center;
+    align-self: start;
+    margin-top: clamp(10px, 4vw, 70px);
+}
+
+.hero__photo {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.hero__photo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom right;
+    filter: drop-shadow(0 18px 20px rgba(48, 26, 31, .15));
+    align-self: end;
+}
+
+/* -------------------- SEÇÕES -------------------- */
+
+.section {
+    width: min(100% - 40px, 900px);
+    margin: 0 auto;
+    padding: clamp(55px, 8vw, 95px) 0;
+}
+
+.section-heading {
+    display: grid;
+    grid-template-columns: minmax(25px, 1fr) auto minmax(25px, 1fr);
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.section-heading span {
+    height: 1px;
+    background: var(--line);
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* -------------------- QUEM SOMOS -------------------- */
+
+.about__card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.about__card p {
+    color: var(--text-soft);
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.75;
+}
+
+.about__card p + p {
+    margin-top: 18px;
+}
+
+/* -------------------- SERVIÇOS -------------------- */
+
+.services__card {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(26px, 4vw, 42px);
+    border-radius: var(--radius);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow);
+}
+
+.services ul {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+}
+
+.services li {
+    position: relative;
+    padding-left: 34px;
+    color: var(--text-soft);
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.45;
+}
+
+.services li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: -.05em;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* -------------------- VERÔNICA -------------------- */
+
+.person__content {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px) 1fr;
+    align-items: center;
+    gap: clamp(28px, 6vw, 80px);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.person__photo {
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    background: rgba(255,255,255,.15);
+}
+
+.person__photo img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.person__text h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(22px, 3vw, 32px);
+    margin-bottom: 15px;
+}
+
+.person__text p {
+    color: var(--text-soft);
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.7;
+}
+
+/* -------------------- CARROSSEL -------------------- */
+
+.clients {
+    padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+.carousel {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 42px 54px;
+}
+
+.carousel__viewport {
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform .55s cubic-bezier(.2,.75,.25,1);
+}
+
+.testimonial {
+    min-width: 100%;
+    padding: clamp(30px, 5vw, 48px);
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.18);
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.testimonial__quote {
+    font-family: Georgia, serif;
+    font-size: 58px;
+    line-height: .6;
+    opacity: .7;
+    margin-bottom: 22px;
+}
+
+.testimonial h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--text-soft);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 50%;
+    background: rgba(101, 61, 69, .35);
+    color: white;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.carousel__button:hover {
+    background: rgba(101, 61, 69, .65);
+}
+
+.carousel__button:active {
+    transform: translateY(-50%) scale(.94);
+}
+
+.carousel__button--prev {
+    left: 0;
+}
+
+.carousel__button--next {
+    right: 0;
+}
+
+.carousel__dots {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.carousel__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+}
+
+.carousel__dot.is-active {
+    width: 22px;
+    border-radius: 10px;
+    background: white;
+}
+
+/* -------------------- CONTATO -------------------- */
+
+.contact {
+    padding: clamp(65px, 9vw, 100px) 20px;
+    background: rgba(91, 51, 60, .18);
+    text-align: center;
+}
+
+.contact__inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(27px, 4vw, 40px);
+    margin-bottom: 12px;
+}
+
+.contact p {
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.contact__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.contact-button {
+    min-width: 175px;
+    padding: 13px 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 999px;
+    background: white;
+    color: #a96874;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 22px rgba(54, 27, 34, .14);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(54, 27, 34, .2);
+}
+
+.contact-button__icon {
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
+    flex: 0 0 29px;
+}
+
+/* -------------------- RODAPÉ -------------------- */
+
+.footer {
+    padding: 29px;
+    text-align: center;
+    background: rgba(73, 39, 46, .18);
+}
+
+.footer p {
+    opacity: .72;
+    font-size: 12px;
+}
+
+/* -------------------- TABLET -------------------- */
+
+@media (max-width: 760px) {
+    .hero {
+        height: 430px;
+        padding: 20px 20px 0;
+    }
+
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100%;
+        gap: 0;
+    }
+
+    .hero__logo {
+        width: min(68%, 300px);
+        height: auto;
+        margin: 8px auto 0;
+    }
+
+    .hero__photo {
+        flex: 1;
+        min-height: 0;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: -4px;
+        overflow: visible;
+    }
+
+    .hero__photo img {
+        max-width: 100%;
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+
+    .section {
+        width: min(100% - 28px, 650px);
+    }
+
+    .person__content {
+        grid-template-columns: minmax(170px, 250px) 1fr;
+        gap: 25px;
+    }
+
+    .carousel {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+/* -------------------- CELULAR -------------------- */
+
+@media (max-width: 520px) {
+    .hero {
+        height: 390px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero__logo {
+        width: 62%;
+    }
+
+    .hero__photo {
+        min-height: 0;
+    }
+
+    .section {
+        width: min(100% - 24px, 460px);
+        padding: 50px 0;
+    }
+
+    .section-heading {
+        gap: 9px;
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+    .about__card,
+    .services__card {
+        padding: 22px 20px;
+    }
+
+    .about__card p,
+    .person__text p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .services ul {
+        gap: 16px;
+    }
+
+    .services li {
+        font-size: 14px;
+        padding-left: 31px;
+    }
+
+    .person__content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .person__photo {
+        width: min(72%, 260px);
+        margin: 0 auto;
+    }
+
+    .person__text {
+        text-align: center;
+    }
+
+    .person__text h3 {
+        font-size: 24px;
+    }
+
+    .carousel {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .testimonial {
+        min-height: 280px;
+        padding: 28px 20px;
+    }
+
+    .testimonial p {
+        font-size: 14px;
+    }
+
+    .carousel__button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contact {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .contact__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-button {
+        width: min(100%, 210px);
+    }
+}
+
+/* -------------------- ACESSIBILIDADE -------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal,
+    .carousel__track {
+        transition: none;
+    }
+}
