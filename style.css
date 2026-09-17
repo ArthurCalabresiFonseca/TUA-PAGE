@@ -25,10 +25,12 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: light;
 }
 
 body {
     min-width: 320px;
+    color-scheme: light;
     background: #15171d;
     color: var(--white);
     font-family: "DM Sans", Arial, sans-serif;
@@ -157,7 +159,7 @@ a {
     padding: clamp(24px, 4vw, 38px);
     border: 1px solid rgba(255,255,255,.18);
     border-radius: var(--radius);
-    background: var(--surface);
+    background: #8f626a;
     box-shadow: var(--shadow);
     backdrop-filter: blur(8px);
 }
@@ -411,16 +413,16 @@ a {
 }
 
 .contact-button__icon {
-    width: 29px;
-    height: 29px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
-    flex: 0 0 29px;
+    flex: 0 0 22px;
 }
 
 /* -------------------- RODAPÉ -------------------- */
 
 .footer {
-    padding: 29px;
+    padding: 22px;
     text-align: center;
     background: rgba(73, 39, 46, .18);
 }
@@ -434,30 +436,31 @@ a {
 
 @media (max-width: 760px) {
     .hero {
-        height: 430px;
-        padding: 20px 20px 0;
+        height: clamp(300px, 68vw, 430px);
+        padding: 16px 14px 0;
     }
 
     .hero__content {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: minmax(105px, 42%) minmax(0, 58%);
+        align-items: end;
         height: 100%;
         gap: 0;
     }
 
     .hero__logo {
-        width: min(68%, 300px);
+        width: min(100%, 250px);
         height: auto;
-        margin: 8px auto 0;
+        justify-self: center;
+        align-self: start;
+        margin: 20px 0 0;
     }
 
     .hero__photo {
-        flex: 1;
+        height: 100%;
         min-height: 0;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: flex-end;
-        margin-top: -4px;
         overflow: visible;
     }
 
@@ -466,7 +469,7 @@ a {
         height: 100%;
         width: auto;
         object-fit: contain;
-        object-position: bottom center;
+        object-position: bottom right;
     }
 
     .section {
@@ -488,13 +491,18 @@ a {
 
 @media (max-width: 520px) {
     .hero {
-        height: 390px;
-        padding-left: 12px;
-        padding-right: 12px;
+        height: clamp(285px, 76vw, 350px);
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .hero__content {
+        grid-template-columns: 43% 57%;
     }
 
     .hero__logo {
-        width: 62%;
+        width: 94%;
+        margin-top: 18px;
     }
 
     .hero__photo {
