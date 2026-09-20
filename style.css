@@ -1,3 +1,4 @@
+html { color-scheme: light !important; }
 /* =========================================================
    TUA CONTABILIDADE
    Layout responsivo — celular, tablet e computador
@@ -29,6 +30,7 @@ html {
 }
 
 body {
+    color-scheme: light !important;
     min-width: 320px;
     color-scheme: light;
     background: #15171d;
@@ -605,5 +607,17 @@ a {
     .reveal,
     .carousel__track {
         transition: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero__logo {
+        width: min(112%, 280px);
+    }
+}
+
+@media (max-width: 520px) {
+    .hero__logo {
+        width: 108%;
     }
 }
